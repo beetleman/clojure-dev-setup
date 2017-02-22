@@ -1,0 +1,9 @@
+FROM clojure:lein
+MAINTAINER Mateusz Probachta <mateusz.probachta@pragmaticcoders.com>
+
+RUN mkdir -p /app
+ADD . /app
+WORKDIR /app
+RUN bash /app/bin/build-dev-env.sh
+
+RUN lein deps
